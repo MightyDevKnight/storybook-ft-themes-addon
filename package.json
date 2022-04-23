@@ -33,6 +33,6 @@
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "build": "babel ./src --out-dir ./dist",
-        "start-dev": "yarn build & yarn build-storybook & yarn start"
+        "start-dev": "yarn build & yarn build-storybook & yarn storybook"
     }
 }
