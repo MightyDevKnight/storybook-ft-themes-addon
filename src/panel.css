@@ -1,0 +1,58 @@
+.ft-container {
+    padding: 24px 108px;
+}
+
+.ft-themeMeta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ft-themeMeta > input {
+    flex: 1;
+    height: 32px;
+    border-radius: 16px;
+    border: 1px solid gray;
+    text-indent: 16px;
+}
+
+.ft-themeMeta > input:focus {
+    outline: 1px solid #1ea7fd;
+    border: none;
+}
+
+.ft-themeMeta > button {
+    margin-left: 16px;
+    width: 72px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid gray;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.ft-themeMeta > button:hover {
+    border-color: #1ea7fd;
+    color: #1ea7fd;
+}
+
+.ft-themeSelector {
+    margin-top: 24px;
+}
+
+.ft-themeSelector > h5 {
+    padding: 8px;
+}
+
+.ft-themeSelector > select {
+    width: 100%;
+    height: 32px;
+    border-radius: 16px;
+    text-indent: 16px;
+}
+
+.ft-themeMeta > select:visited {
+    outline: 1px solid #1ea7fd;
+    border: none;
+}
