@@ -1,5 +1,5 @@
 .ft-container {
-    padding: 24px 108px;
+    padding: 24px 64px;
 }
 
 .ft-themeMeta {
@@ -9,11 +9,12 @@
 }
 
 .ft-themeMeta > input {
-    flex: 1;
     height: 32px;
     border-radius: 16px;
     border: 1px solid gray;
     text-indent: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .ft-themeMeta > input:focus {
@@ -21,8 +22,16 @@
     border: none;
 }
 
+.ft-themeMeta-path {
+    flex: 2;
+}
+
+.ft-themeMeta-tagVersion {
+    flex: 1;
+}
+
 .ft-themeMeta > button {
-    margin-left: 16px;
+    margin-left: 8px;
     width: 72px;
     height: 32px;
     background: transparent;
@@ -43,6 +52,7 @@
 
 .ft-themeSelector > h5 {
     padding: 8px;
+    margin-left: 8px;
 }
 
 .ft-themeSelector > select {
@@ -50,9 +60,15 @@
     height: 32px;
     border-radius: 16px;
     text-indent: 16px;
+    margin-left: 8px;
 }
 
 .ft-themeMeta > select:visited {
     outline: 1px solid #1ea7fd;
     border: none;
+}
+
+.error-connection { 
+    color: red;
+    padding: 4px 16px;
 }

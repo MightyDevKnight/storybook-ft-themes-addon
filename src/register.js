@@ -16,7 +16,7 @@ addons.register(ADDON_ID, (api) => {
     title: "FT Theme Addon",
     render: ({ active, key }) => (
       <AddonPanel active={active} key={key}>
-        <FTPanel target="root" />
+        <FTPanel target="body" />
       </AddonPanel>
     ),
   });
