@@ -37,7 +37,7 @@ const FTPanel = ({ target }) => {
       styleLink.setAttribute("type", "text/css");
       styleLink.setAttribute(
         "href",
-        `${cdnUrl}${themeMetaPath}/dist/css/${activeTheme}.css`
+        `${cdnUrl}${themeMetaPath}@${tagVersion}/dist/css/${activeTheme}.css`
       );
       iframeDocument.getElementsByTagName("head")[0].appendChild(styleLink);
     }
