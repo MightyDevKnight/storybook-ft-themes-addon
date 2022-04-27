@@ -2,13 +2,13 @@ import React from "react";
 import { API } from "@storybook/api";
 import "./panel.css";
 
+const cdnUrl = `https://cdn.jsdelivr.net/gh/`;
 const iFrame_Id = "storybook-preview-iframe";
 const ERR_CONNECTION_CREDENTIAL =
   "Unable to fetch theme data. Please check repository path and tag version.";
 const ERR_REQUIRED_FIELD = "Repository path and Tag version are required!";
 
 const FTPanel = ({ target }) => {
-  const cdnUrl = `https://cdn.jsdelivr.net/gh/`;
   const [themeMetaPath, setThemeMetaPath] = React.useState(null);
   const [tagVersion, setTagVersion] = React.useState(null);
   const [themeMetaData, setThemeMetaData] = React.useState(null);
