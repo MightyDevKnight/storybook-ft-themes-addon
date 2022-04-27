@@ -1,5 +1,5 @@
 import React from "react";
-import { API } from "@storybook/api";
+import { ThemeMeta } from "./types";
 import "./panel.css";
 
 const cdnUrl = `https://cdn.jsdelivr.net/gh/`;
@@ -8,16 +8,20 @@ const ERR_CONNECTION_CREDENTIAL =
   "Unable to fetch theme data. Please check repository path and tag version.";
 const ERR_REQUIRED_FIELD = "Repository path and Tag version are required!";
 
-const FTPanel = ({ target }) => {
-  const [themeMetaPath, setThemeMetaPath] = React.useState(null);
-  const [tagVersion, setTagVersion] = React.useState(null);
-  const [themeMetaData, setThemeMetaData] = React.useState(null);
-  const [activeTheme, setActiveTheme] = React.useState(null);
-  const [errorMessage, setErrorMessage] = React.useState(null);
+type Props = {
+  target: string
+}
+
+const FTPanel: React.FC<Props> = ({ target }) => {
+  const [themeMetaPath, setThemeMetaPath] = React.useState<string | null>(null);
+  const [tagVersion, setTagVersion] = React.useState<string | null>(null);
+  const [themeMetaData, setThemeMetaData] = React.useState<ThemeMeta[] | null>(null);
+  const [activeTheme, setActiveTheme] = React.useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    let targetEl, styleLink;
-    const iframe = document.getElementById(iFrame_Id);
+    let targetEl: HTMLElement, styleLink: HTMLLinkElement;
+    const iframe = document.getElementById(iFrame_Id) as HTMLIFrameElement;
     if (!iframe) {
       return null;
     }
@@ -64,12 +68,7 @@ const FTPanel = ({ target }) => {
         themeMetaData
           .filter((theme) => theme.class)
           .forEach((theme) => {
-            if (typeof theme.class === "string") {
-              targetEl.classList.remove(theme.class);
-            } else {
-              // string[]
-              targetEl.classList.remove(...theme.class);
-            }
+            targetEl.classList.remove(theme.class);
 
             const linkElement = iframeDocument.getElementById(theme.name);
             if (linkElement) {
@@ -80,11 +79,11 @@ const FTPanel = ({ target }) => {
     };
   }, [activeTheme, themeMetaData]);
 
-  const onThemeMetaPathInputChange = React.useCallback((e) => {
+  const onThemeMetaPathInputChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setThemeMetaPath(e.target.value);
   }, []);
 
-  const onTagVersionInputChange = React.useCallback((e) => {
+  const onTagVersionInputChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setTagVersion(e.target.value);
   }, []);
 
@@ -96,7 +95,7 @@ const FTPanel = ({ target }) => {
       tagVersion.length > 0
     ) {
       try {
-        const themeMetaDataRaw = await fetch(
+        const themeMetaDataRaw: ThemeMeta[] = await fetch(
           `https://cdn.jsdelivr.net/gh/${themeMetaPath}@${tagVersion}/dist/themes-storybook.json`
         ).then((res) => res.json());
 
@@ -110,7 +109,7 @@ const FTPanel = ({ target }) => {
     }
   }, [themeMetaPath, tagVersion]);
 
-  const onThemeSelectionChange = React.useCallback((e) => {
+  const onThemeSelectionChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     setActiveTheme(e.target.value);
   }, []);
 

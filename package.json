@@ -41,7 +41,7 @@
     "scripts": {
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "build": "BABEL_DISABLE_CACHE=1 babel ./src --out-dir ./dist",
+        "build": "babel ./src --out-dir ./dist",
         "start-dev": "yarn build & yarn build-storybook & yarn storybook"
     }
 }
