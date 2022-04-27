@@ -14,7 +14,6 @@ const FTPanel = ({ target }) => {
   const [themeMetaData, setThemeMetaData] = React.useState(null);
   const [activeTheme, setActiveTheme] = React.useState(null);
   const [errorMessage, setErrorMessage] = React.useState(null);
-  const [isLoadingTheme, setIsLoadingTheme] = React.useState(false);
 
   React.useEffect(() => {
     let targetEl, styleLink;
